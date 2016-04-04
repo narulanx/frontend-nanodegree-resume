@@ -1,14 +1,4 @@
-body,
-div,
-ul,
-li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+body, div, ul, li, p, h1, h2, h3, h4, h5, h6 {
   padding:0;
   margin:0;
   font-family: "Roboto", sans-serif;
@@ -18,25 +8,33 @@ h6 {
   overflow: auto;
 }
 
-.education-entry,
-.work-entry,
-.project-entry {
+.education-entry, .work-entry, .project-entry {
   padding: 0 5%;
+}
+
+.work-entry #name, .project-entry #name, .education-entry #name {
+  color: #4D60C9;
+  padding-top: 20px;
+}
+
+.education-entry a {
+  color: #4D60C9;
 }
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #000;
   line-height: 48px;
-  display: inline;
+  text-align: right;
+  padding-top: 40px;
 }
 
 h2 {
-  font-weight: bold;
-  font-size: 24px;
+  font-size: 30px;
   color: #999;
   line-height: 29px;
-  padding: 10px;
+  padding:10px 5%;
+  text-align: center;
 }
 
 h3 {
@@ -44,6 +42,7 @@ h3 {
   font-size: 20px;
   color: #000;
   line-height: 22px;
+  padding:10px 10px 10px 0;
 }
 
 h4 {
@@ -51,16 +50,12 @@ h4 {
   font-size: 14px;
   color: #4a4a4a;
   line-height: 17px;
+  padding:10px 5%;
 }
 
-h2,
-h3,
-h4,
 h5 {
   padding:10px 5%;
-
 }
-
 
 .date-text {
   font-style: italic;
@@ -68,6 +63,7 @@ h5 {
   color: #999;
   line-height: 16px;
   float: left;
+  width: auto;
 }
 
 .location-text {
@@ -76,8 +72,14 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
-
+  width: 10%;
 }
+
+.client-text {
+  font-size: 14px;
+  color: #333;
+}
+
 
 p {
   font-size: 14px;
@@ -95,13 +97,13 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #f3f3f3;
+  color: #333;
   line-height: 28px;
+  padding: 10px 0;
 }
 
 #skills-h3 {
-  color: #f5ae23;
-  display: none;
+  color: #000;
 }
 
 .orange {
@@ -109,16 +111,17 @@ a {
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #000;
+  font-weight: 600;
 }
 
 .white-text {
   font-weight: bold;
-  color: #fff;
+  color: #4D60C9;
 }
 
 .gray {
-  background-color: #f3f3f3;
+  background-color: #FBFBFB;
   padding-bottom: 10px;
   clear:both;
 }
@@ -129,7 +132,24 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #BEE6BB;
+}
+
+.role {
+  text-align: right;
+  padding-bottom: 30px;
+}
+
+#workExperience h2, #projects h2, #education h2, #mapDiv h2, #lets-connect h2 {
+  padding-top: 5.5%;
+}
+
+#education h3 {
+  padding-left: 5%;
+}
+
+#projects {
+  padding-bottom: 20px;
 }
 
 .flex-box {
@@ -139,6 +159,24 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+}
+
+.work-flex {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skills{
+  flex-direction: column;
+  padding: 0;
+}
+
+.skills span {
+  padding: 0;
+  line-height: 2;
 }
 
 .center-content {
@@ -152,8 +190,10 @@ ul {
 .biopic {
   float: left;
   padding: 10px;
-  width: 200px;
+  width: 170px;
   display: none;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 img {
@@ -170,19 +210,40 @@ span {
 
 /* Media queries to handle various device widths */
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 1200px) {
+  #main {
+    width: 1200px;
+  }
+}
+
+@media only screen and (max-width: 1201px) {
+  #main {
+    width: 1024px;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  #main {
+    width: 900px;
+  }
   #lets-connect {
     margin-top: 5%;
   }
 }
 
-@media only screen and (max-width:900px) {
+@media only screen and (max-width:901px) {
+  #main {
+    width: 750px;
+  }
   .biopic {
     width: 175px;
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 751px) {
+  #main {
+    width: 500px;
+  }
   #lets-connect {
     margin-top: 10%;
   }
@@ -191,6 +252,20 @@ span {
   }
   .welcome-message {
     display: none;
+  }
+  .skill-chart {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  #skills-h3,
+  .biopic {
+    display: block;
+  }
+  .skill-chart{
+    width: 70%;
+    display: flex;
   }
 }
 
@@ -206,9 +281,106 @@ span {
   padding-bottom: 5%;
 }
 
-@media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
-    display: block;
-  }
+.flex-item {
+  display: flex;
+}
+
+#main {
+  padding: 0 15px;
+  margin: auto;
+}
+
+#skills li{
+  display: none;
+}
+
+.more-less-link {
+  font-style: italic;
+  color: #333;
+}
+
+a.more-less-link:hover {
+  color: #333;
+}
+
+.skill-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.skill-list{
+  width: 30%;
+}
+
+.chart {
+  width: 33%;
+  position: relative;
+}
+
+.chart strong {
+  position: absolute;
+  text-align: center;
+  font-size: 30px;
+  top: 30px;
+  left: 24px;
+}
+
+.chart span {
+  font-size: 20px;
+  margin-right: 95px;
+}
+
+#html5 span {
+  padding-left: 19px;
+}
+
+#css span {
+  padding-left: 30px;
+}
+
+.padding-top10 {
+  padding-top: 10px;
+}
+
+#footerContacts {
+  display: inline-flex;
+}
+
+#footerContacts a {
+  padding: 20px;
+  color: #000;
+}
+
+.nav .active {
+  background-color: #BEE6BB !important;
+}
+
+/*nav bar */
+.navbar-default {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+  width: 100%;
+  position: fixed;
+}
+
+.navbar-collapse {
+  float: right;
+}
+
+.navbar-header span {
+  padding: 1px;
+}
+
+#navbar {
+  height: 62px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #000 !important;
 }

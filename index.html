@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html>
 <!--
 This is an HTML document. It contains information about how elements in the website
 are arranged. In other words, it describes the layout of a website.
@@ -17,10 +17,11 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 <head>
   <!-- This tells the browser how to read the document. -->
   <meta charset="utf-8">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Tells the browser what the title of this page should be. -->
   <title>Resume</title>
-
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <!-- Load the page styles. -->
   <link href="css/style.css" rel="stylesheet">
 
@@ -42,18 +43,17 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
 
+  <script src="js/circle-progress.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!--
   Uncomment the <script> tag below when you're ready to add an interactive
   Google Map to your resume!
   -->
-<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
-
-  <meta name="viewport" content="width=device-width">
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 </head>
 <body>
+  <div id="navbar"></div>
   <div id="main">
-    Hello world!   <!-- You'll be deleting this line in the course -->
-
     <!--
     Everything from here to the <script> tag below is the skeleton of your
     website. Your code will add information to each of the sections of the
@@ -76,9 +76,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     <div id="mapDiv">
       <h2>Where I've Lived and Worked</h2>
     </div>
-    <div id="lets-connect" class="dark-gray">
-      <h2 class="orange center-text">Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
+    <div id="lets-connect">
+      <h2 class="center-text">Let's Connect</h2>
+        <ul id="footerContacts">
       </ul>
     </div>
   </div>
@@ -89,52 +89,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   dynamically when this website, index.html, is opened.
   -->
   <script src="js/resumeBuilder.js"></script>
-
-
-  <!--
-  These scripts are written in JavaScript. You'll be breaking them down as part of
-  a quiz. Essentially, the next few lines are checking to see if you have not
-  changed each section of the resume. If you have not made any changes to a section
-  of the resume, then that part of the resume does not show up. More on this in the
-  course.
-  -->
-
-  <script type="text/javascript">
-    // Notice how all of a sudden there's JavaScript inside this HTML
-    // document? You can write JavaScript between <script> tags. At the end of your
-    // JavaScript, don't forget the closing script tag with the slash (/).
-
-
-    // Also, this is a JavaScript style comment. You can comment in JavaScript with:
-
-    //   two slashes for all following characters on a single line, or
-
-    /*
-        an opening and closing set of slash asterisks for block comments.
-    */
-
-
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('topContacts').style.display = 'none';
-    }
-    if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.display = 'none';
-    }
-    if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
-    }
-    if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
-    }
-    if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
-    }
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('lets-connect').style.display = 'none';
-    }
-    if(document.getElementById('map') === null) {
-      document.getElementById('mapDiv').style.display = 'none';
-    }
   </script>
 </body>
 </html>

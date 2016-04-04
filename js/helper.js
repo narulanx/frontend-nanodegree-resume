@@ -60,12 +60,12 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<div id="name">%data%</div>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-//var HTMLprojectImage = '<img src="%data%">';
-//var HTMLprojectClient = '<div class="client-text">Client - %data%</div>';
+var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolDegree = '<div id="name">%data%: ';
-var HTMLschoolName = '%data%</div>';
+var HTMLschoolDegreeURL = '<div id="name"><a href="%data%">';
+var HTMLschoolDegree = '%data%: ';
+var HTMLschoolName = '%data%</a></div>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%<br><br></em>';

@@ -53,16 +53,16 @@ bio.display = function() {
 var work = {
 	"jobs" : [
 		{
-			"position" : "Technology Lead",
+			"title" : "Technology Lead",
 			"employer" : "Infosys Limited",
-			"years" : "August 2012 - Present",
+			"dates" : "August 2012 - Present",
 			"location" : "Miamisburg, OH",
 			"description" : "I have been working as a Web Developer for the last 8 years with Java as my primary skills. I have worked on front end development as well using HTML, JavaScript, JQuery and CSS."
 		},
 		{
-			"position" : "Software Engineer",
+			"title" : "Software Engineer",
 			"employer" : "Infosys Limited",
-			"years" : "July 2007 - August 2012",
+			"dates" : "July 2007 - August 2012",
 			"location" : "Bangalore, India",
 			"description" : "I was a software developer for 5 years in Infosys while enhancing my skills on both front end and back end development."
 		}
@@ -76,9 +76,9 @@ work.display = function(){
 	for (job in work.jobs){
 		$("#workExperience").append(HTMLworkStart);
 		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].position);
+		var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 		$(".work-entry:last").append(formattedWorkEmployer+formattedWorkTitle);
-		var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].years);
+		var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 		var formattedworkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 		var formattedworkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$(".work-entry:last").append(HTMLworkDateWrap);
@@ -94,46 +94,48 @@ var education = {
 			"name" : "Siddanganga Institute of Technology",
 			"location" : "Tumkur, India",
 			"degree" : "B.E.",
-			"gradYear" : "2007",
-			"majors" : ["Information Technology"]
+			"dates" : "2003 - 2007",
+			"majors" : ["Information Technology"],
+			"url" : "http://www.sit.ac.in/"
 		},
 		{
 			"name" : "D.B.M.S. English School",
 			"location" : "Jamshedpur, India",
 			"degree" : "I.S.C.",
-			"gradYear" : "2003",
-			"majors" : ["maths","physics","chemistry"]
+			"dates" : "2003",
+			"majors" : ["maths","physics","chemistry"],
+			"url" : "http://dbms.edu.in/"
 		}
 	],
 	"onlineCourses" : [
 		{
-			"name" : "Intro to jQuery",
+			"title" : "Intro to jQuery",
 			"school" : "Udacity",
-			"year" : "2016",
+			"date" : "2016",
 			"url" : "https://www.udacity.com/course/viewer#!/c-ud245"
 		},
 		{
-			"name" : "JavaScript Basics",
+			"title" : "JavaScript Basics",
 			"school" : "Udacity",
-			"year" : "2016",
+			"date" : "2016",
 			"url" : "https://www.udacity.com/course/viewer#!/c-ud804"
 		},
 		{
-			"name" : "Responsive Images",
+			"title" : "Responsive Images",
 			"school" : "Udacity",
-			"year" : "2016",
+			"date" : "2016",
 			"url" : "https://www.udacity.com/course/viewer#!/c-ud882-nd"
 		},
 		{
-			"name" : "Responsive Web Design Fundamentals",
+			"title" : "Responsive Web Design Fundamentals",
 			"school" : "Udacity",
-			"year" : "2016",
+			"date" : "2016",
 			"url" : "https://www.udacity.com/course/viewer#!/c-ud893-nd"
 		},
 		{
-			"name" : "Intro to HTML and CSS",
+			"title" : "Intro to HTML and CSS",
 			"school" : "Udacity",
-			"year" : "2016",
+			"date" : "2016",
 			"url" : "https://www.udacity.com/course/viewer#!/c-ud304-nd"
 		}
 	]
@@ -145,12 +147,14 @@ var education = {
 education.display = function(){
 	for (school in education.schools){
 		$('#education').append(HTMLschoolStart);
-		var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[school].name);
+		var formattedSchoolDegreeURL = HTMLschoolDegreeURL.replace("%data%",education.schools[school].url);
 		var formattedSchoolDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
-		var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[school].gradYear);
+		var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[school].name);
+		var formattedScool = formattedSchoolDegreeURL + formattedSchoolDegree + formattedSchoolName;
+		var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
 		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
 		var formattedSchoolMajor = HTMLschoolMajor.replace("%data%",education.schools[school].majors);
-		$('.education-entry:last').append(formattedSchoolDegree + formattedSchoolName);
+		$('.education-entry:last').append(formattedScool);
 		$('.education-entry:last').append(formattedSchoolDates);
 		$('.education-entry:last').append(formattedSchoolLocation);
 		$('.education-entry:last').append(formattedSchoolMajor);
@@ -158,9 +162,9 @@ education.display = function(){
 	$('#education').append(HTMLonlineClasses);
 	for (oc in education.onlineCourses){
 		$('#education').append(HTMLschoolStart);
-		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[oc].name);
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[oc].title);
 		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[oc].school);
-		var formattedOnlineDates = HTMLonlineDates.replace("%data%",education.onlineCourses[oc].year);
+		var formattedOnlineDates = HTMLonlineDates.replace("%data%",education.onlineCourses[oc].date);
 		var formattedOnlineUrl = HTMLonlineURL.replace("%data%",education.onlineCourses[oc].url);
 		$('.education-entry:last').append(formattedOnlineUrl + formattedOnlineTitle + formattedOnlineSchool);
 		$('.education-entry:last').append(formattedOnlineDates);
@@ -171,45 +175,45 @@ var projects = {
 	"projects" : [
 		{
 			"title" : "Lexis Diligence",
-			"year" : "Feb 2016 - Present",
+			"dates" : "Feb 2016 - Present",
 			"description" : "This Project involves brainstorming with business about the feasibility of enhancements from a technical point of view and also implementing them in an agile work flow model.",
-			"client" : "LexisNexis"
+			"images" : ["http://loremflickr.com/320/240"]
 		},
 		{
 			"title" : "Quebec Essentials and Practice Areas",
-			"year" : "Feb 2016 - Present",
+			"dates" : "Feb 2016 - Present",
 			"description" : "Canada is one of our business units in our legacy project, Rosetta. Quebec is a customer of the Canada legal BU. This project is about creating 5 essential search forms and 5 practice areas for Quebec in Canada, which involves extensive use of database, XMLs, user/admin/adaptation level properties and some code changes as well.",
-			"client" : "LexisNexis"
+			"images" : ["http://loremflickr.com/320/240"]
 		},
 		{
 			"title" : "Rosetta Level of Effort",
-			"year" : "Mar 2014 - Jan 2016",
+			"dates" : "Mar 2014 - Jan 2016",
 			"description" : "This Project involves handling of small and medium enhancements for our 11 business units in Rosetta. All the enhancements are vertical specific, search form specific, adaptation specific and UI specific. The project involves attending weekly client meetings to get the requirements and discuss project issues. It also involves coordination between client and the offshore team.",
-			"client" : "LexisNexis"
+			"images" : ["http://loremflickr.com/320/240"]
 		},
 		{
 			"title" : "AT UI Refresh",
-			"year" : "Jun 2014 - Dec 2015",
+			"dates" : "Jun 2014 - Dec 2015",
 			"description" : "This project is divided into phases. Phase 1 was released in Dec 2014; and phase 2 was released in Dec 2015. The project aimed at giving a completely new user experience to the users while navigating to results screen and legal documents. To achieve this, a lot of front end development were used to bring the screens on par with current web applications.",
-			"client" : "LexisNexis"
+			"images" : ["http://loremflickr.com/320/240"]
 		},
 		{
 			"title" : "Rosetta Maintenance",
-			"year" : "Sep 2011 - Feb 2014",
+			"dates" : "Sep 2011 - Feb 2014",
 			"description" : "Rosetta is a web application and it is a Search engine for people (lawyers, students etc.) in different countries who want to perform search on various legal and news content. Rosetta provides services based on adaptation, which means it provides various services in different countries and on different areas of user interest. Services in Rosetta include Search, Results, Document-View, Delivery, History and alerts etc.",
-			"client" : "LexisNexis"
+			"images" : ["http://loremflickr.com/320/240"]
 		},
 		{
 			"title" : "Lexis PSL",
-			"year" : "Dec 2009 - Aug 2011",
+			"dates" : "Dec 2009 - Aug 2011",
 			"description" : "Lexis PSL (Professional Support Lawyers) is a project which enables the users to view the legal documents, either by performing a search on a particular Practice Area and the content type or by navigating through the subtopic landing pages. The documents have features such as delivery (via email, print and download), permalinking (copy URL), viewing recently viewed document, creating alerts, displaying the latest legal updates and news content, giving feedback, changing password etc. This project is being executed in an agile development methodology involving scrumworks. The project involves requirement elaboration, design, build, testing and implementation.",
-			"client" : "LexisNexis"
+			"images" : ["http://loremflickr.com/320/240"]
 		},
 		{
 			"title" : "Attorneys.com (ADC) and Lawyers.com (LDC)",
-			"year" : "Nov 2007 - Nov 2009",
+			"dates" : "Nov 2007 - Nov 2009",
 			"description" : "ADC and LDC are web applications which have the functionality to send the user’s detailed legal requirements to the lawyers via email by making a search using the area of practice or browsing through the states and cities. The application has lawyer’s profile which included their area of practice, location and other details. It also provides search by various methods, suggestions, Blogs, Legal Dictionary etc. The project used agile methodology as its process.",
-			"client" : "LexisNexis"
+			"images" : ["http://loremflickr.com/320/240"]
 		}
 	]
 }
@@ -221,9 +225,12 @@ projects.display = function(){
     for(project in projects.projects){
 		$("#projects").append(HTMLprojectStart);
 		$(".project-entry:last").append(HTMLprojectTitle.replace("%data%",projects.projects[project].title));
-		$(".project-entry:last").append(HTMLprojectDates.replace("%data%",projects.projects[project].year));
+		$(".project-entry:last").append(HTMLprojectDates.replace("%data%",projects.projects[project].dates));
 		//$(".project-entry:last").append(HTMLprojectClient.replace("%data%",projects.projects[project].client));
 		$(".project-entry:last").append(HTMLprojectDescription.replace("%data%",projects.projects[project].description));
+		for(var i = 0; i < projects.projects[project].images.length; i++){
+			$(".project-entry:last").append(HTMLprojectImage.replace("%data%",projects.projects[project].images[i]));
+		}
     }
 };
 

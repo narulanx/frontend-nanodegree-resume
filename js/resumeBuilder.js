@@ -4,9 +4,13 @@ var bio = {
 	"contacts" : {
 		"mobile" : "937-825-2660",
 		"email" : "nik.coolest@gmail.com",
+		"location" : "Miamisburg, OH",
 		"github" : "narulanx",
-		"location" : "Miamisburg, OH"
-	},
+		"githubUrl" : "https://github.com/narulanx",
+		"facebookUrl" : "https://www.facebook.com/nikhil.narula.908",
+		"gplusUrl" : "https://plus.google.com/113441010670121634704/posts",
+		"linkedInUrl" : "https://www.linkedin.com/in/nikhil-narula-37a20717?trk=nav_responsive_tab_profile"
+ 	},
 	"biopic" : "images/me.jpg",
 	"welcomeMessage" : "I write clean and efficient code with main focus on responsiveness, browser compatibility and object orientation. Coding with HTML, JavaScript and CSS is FUN.",
 	"skills" : ["HTML5","JavaScript","JQuery","CSS","Java/J2EE","JSP","Servlets"]
@@ -276,13 +280,25 @@ var footerContacts = {
 * @description displays the contact section of the resume
 */
 footerContacts.display = function(){
-	for(var contact in footerContacts.contacts){
-		if (footerContacts.contacts.hasOwnProperty(contact)) {
-			var footerAnchor = HTMLfooterAnchor.replace("%data%",footerContacts.contacts[contact].url) + HTMLfooterTitle.replace("%data%",footerContacts.contacts[contact].title);
-			$("#footerContacts").append(footerAnchor);
-			$("#footerContacts a:last").append(HTMLfooterIcon.replace("%data%",footerContacts.contacts[contact].class));
-		}
-	}
+	//facebook
+	var facebookAnchor = HTMLfooterAnchor.replace("%data%",bio.contacts.facebookUrl) + HTMLfooterTitle.replace("%data%","Facebook");
+	$("#footerContacts").append(facebookAnchor);
+	$("#footerContacts a:last").append(HTMLfooterIcon.replace("%data%","fa-facebook"));
+
+	//google plus
+	var gPlusAnchor = HTMLfooterAnchor.replace("%data%",bio.contacts.gplusUrl) + HTMLfooterTitle.replace("%data%","Google Plus");
+	$("#footerContacts").append(gPlusAnchor);
+	$("#footerContacts a:last").append(HTMLfooterIcon.replace("%data%","fa-google-plus"));
+
+	//linked in
+	var linkedInAnchor = HTMLfooterAnchor.replace("%data%",bio.contacts.linkedInUrl) + HTMLfooterTitle.replace("%data%","LinkedIn");
+	$("#footerContacts").append(linkedInAnchor);
+	$("#footerContacts a:last").append(HTMLfooterIcon.replace("%data%","fa-linkedin"));
+
+	//github
+	var githubAnchor = HTMLfooterAnchor.replace("%data%",bio.contacts.githubUrl) + HTMLfooterTitle.replace("%data%","Github");
+	$("#footerContacts").append(githubAnchor);
+	$("#footerContacts a:last").append(HTMLfooterIcon.replace("%data%","fa-github"));
 };
 
 bio.display();
@@ -333,27 +349,6 @@ $(document).ready(function() {
             color: "#4D60C9"
         }
     });
-
-    /*var workScroll = $('#workExperience').offset().top;
-    var projectScroll = $('#projects').offset().top;
-    var educationScroll = $('#education').offset().top;
-    var mapScroll = $('#mapDiv').offset().top;
-    var connectScroll = $('#lets-connect').offset().top;
-    $(window).scroll(function(){
-    	$('ul.nav li a').removeClass('active');
-    	if($(window).scrollTop() < workScroll){
-    		$('ul.nav li a#1').addClass('active');
-    	}
-    	else if($(window).scrollTop() < projectScroll){
-    		$('ul.nav li a#2').addClass('active');
-    	}
-    	else if($(window).scrollTop() < educationScroll){
-    		$('ul.nav li a#3').addClass('active');
-    	}
-    	else if($(window).scrollTop() < mapScroll){
-    		$('ul.nav li a#4').addClass('active');
-    	}
-    });*/
 
     /* Events to highlight the tab when they are clicked to scroll to a particular position */
     $('.collapse a').on('click', function(){
